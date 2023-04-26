@@ -1,0 +1,122 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lena Software | Giriş</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
+    <link href="~/library/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+
+    <link href="~/library/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/library/dist/css/adminlte.min.css" rel="stylesheet" />
+
+    <link href="~/library/plugins/sweetalert2/sweetalert2.min.css" rel="stylesheet" />
+
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+
+        <div class="login-logo">
+            <a><b>Lena</b>Software</a>
+        </div>
+
+        <div class="card">
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Lena Software Login</p>
+
+                <form>
+                    <div class="input-group mb-3">
+                        <input id="userNameTxt" type="text" class="form-control" placeholder="Kullanıcı Adı Giriniz...">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input id="passwordTxt" type="password" class="form-control" placeholder="Şifrenizi Giriniz...">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                        </div>
+
+                        <div class="col-4">
+                            <button id="btnLogIn" type="button" class="btn btn-primary btn-block">Giriş</button>
+                        </div>
+
+                    </div>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/library/plugins/jquery/jquery.min.js"></script>
+
+    <script src="~/library/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/library/dist/js/adminlte.min.js"></script>
+    
+    <script src="~/library/plugins/sweetalert2/sweetalert2.all.min.js"></script>  
+   
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#btnLogIn").click(function () {
+                var formData =
+                {
+                    UserName: $("#userNameTxt").val(),
+                    Password: $("#passwordTxt").val()
+                };
+
+                $.ajax({
+
+                    url: "/Authentication/LogIn",
+                    method: "post",
+                    datatype: "json",
+                    data: { dto: formData },
+                    success: function (response) {
+                        if (response.isSuccess) {
+                            window.location.href = "/Home/Index";
+                        }
+                        else {
+                            Swal.fire
+                                ({
+
+                                    icon: 'error',
+                                    title: 'İşlem Başarısız',
+                                    html: response.message
+
+                                });
+                        }
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+
+
+
+</body>
+</html>

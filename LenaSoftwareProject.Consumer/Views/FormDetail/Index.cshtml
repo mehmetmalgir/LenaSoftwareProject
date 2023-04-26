@@ -1,0 +1,93 @@
+﻿@{
+    Layout = null;
+}
+@using LenaSoftwareProject.Consumer.Models.Dto_s
+@model ApiFormDto
+
+<html lang="tr">
+<head>
+
+    <link href="~/library/plugins/datatables-bs4/css/datatables.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/library/plugins/datatables-responsive/css/responsive.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/library/plugins/datatables-buttons/css/buttons.bootstrap4.min.css" rel="stylesheet" />
+    <link href="~/library/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <link href="~/library/plugins/icheck-bootstrap/icheck-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/library/dist/css/adminlte.min.css" rel="stylesheet" />
+    
+
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col">
+
+                <div class="card-body">
+
+                    <form>
+                        <div class="card-body">
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Form Adı</label>
+                                <input type="text" class="form-control" value="@Model.FormName">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Form Açıklaması</label>
+                                <input type="text" class="form-control" value="@Model.Description" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Oluşturma Tarihi</label>
+                                <input type="text" class="form-control" value="@Model.CreatedAt" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">İsim</label>
+                                <input type="text" class="form-control" value="@Model.Name" >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Soyisim</label>
+                                <input type="text" class="form-control" value="@Model.Surname">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Yaş</label>
+                                <input type="text" class="form-control" value="@Model.Age" >
+                            </div>
+                           
+                            
+                        </div>                        
+
+                        <div class="card-footer">
+                            <a href="#" class="btn btn-primary">Değişiklikleri Uygula</a>
+                        </div>
+                    </form>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+
+    <script src="~/library/plugins/jquery/jquery.min.js"></script>
+    <script src="~/library/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/library/dist/js/adminlte.min.js"></script>
+   
+
+
+    
+
+
+
+</body>
+</html>
